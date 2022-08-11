@@ -1,6 +1,9 @@
+using MeetingManagement.Dto;
+using MeetingManagement.Models;
+
 namespace MeetingManagement.Data.Repo{
 
-    public class MeetingItemRepository{
+    public class MeetingItemRepository : IMeetingItemRepository{
 
     private readonly DataContext dc;
 
@@ -9,10 +12,16 @@ namespace MeetingManagement.Data.Repo{
         this.dc = dc;
     }
    
-        //  public async Task<IEnumerable<MeetingItem>> GetMeetingAsync()
-        // {
-        //     return await dc.Meetings.ToListAsync();
-        // }
+         public void AddMeetingItem(MeetingItem meetingItem)
+        {
+            dc.MeetingItems.Add(meetingItem);             
+        }
+      public List<MeetingItem> GetMeetingTypeAsync(int meetingItemId) {
+           var result = (from meetinItem in dc.MeetingItems
+             where meetinItem.MeetingItemId == meetingItemId
+             select meetinItem).ToList();
 
+             return result;
+      }
     }
 }

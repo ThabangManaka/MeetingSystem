@@ -13,19 +13,7 @@ public class MeetingRepository : IMeetingRepository {
      }
 
      
-//      public bool AddSchemeMaster(SchemeMaster schemeMaster)
-//  {
-//       dc.SchemeMaster.Add(schemeMaster);
-//             var result = dc.SaveChanges();
-//             if (result > 0)
-//             {
-//                 return true;
-//             }
-//             else
-//             {
-//                 return false;
-//             }
-//  }
+
 
          public void AddMeeting(Meeting meeting)
         {
