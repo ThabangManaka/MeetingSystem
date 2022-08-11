@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MeetingManagement.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220809211431_InitialCreate")]
+    [Migration("20220811191755_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -34,9 +34,6 @@ namespace MeetingManagement.Migrations
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("MeetingItemId")
-                        .HasColumnType("int");
 
                     b.Property<int>("MeetingTypeId")
                         .HasColumnType("int");
@@ -62,9 +59,12 @@ namespace MeetingManagement.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Item")
+                    b.Property<string>("ItemName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("MeetingId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Status")
                         .IsRequired()

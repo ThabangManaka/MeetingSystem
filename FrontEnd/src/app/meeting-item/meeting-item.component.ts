@@ -12,4 +12,8 @@ export class MeetingItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  save(employee : any) {
+   console.log(employee)
+  }
+
 }

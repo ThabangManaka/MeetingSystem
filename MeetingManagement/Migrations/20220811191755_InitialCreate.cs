@@ -15,10 +15,11 @@ namespace MeetingManagement.Migrations
                 {
                     MeetingItemId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Item = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ItemName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Comments = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Action = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Action = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MeetingId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -32,7 +33,6 @@ namespace MeetingManagement.Migrations
                     MeetingId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     MeetingTypeId = table.Column<int>(type: "int", nullable: false),
-                    MeetingItemId = table.Column<int>(type: "int", nullable: false),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>

@@ -1,1 +1,57 @@
-<p>meeting-item works!</p>
+<mat-toolbar class="page-header" role="heading">
+  <h1>Add New Meeting Item</h1>
+</mat-toolbar>
+
+<div class="page-content">
+  <mat-card class="page-content__first-item-wrapper">
+    <div class="page-content__first-item-element">
+      <mat-card-title>
+        <p>Add New Sales</p>
+      </mat-card-title>
+      <mat-card-subtitle>
+        <p>Add new item by filling the form. You can click save when you are done:</p>
+      </mat-card-subtitle>
+      <mat-card-content>
+
+          <mat-grid-list cols="2" rowHeight="600px">
+            <mat-grid-tile>
+              <form  #f="ngForm" (ngSubmit)="save(f.value)">
+
+                <mat-form-field appearance="fill">
+                  <mat-label>Meeting Item</mat-label>
+                  <input #name="ngModel" ngModel name="name" matInput required>
+                </mat-form-field>
+
+              
+
+                       <br>
+                       <mat-form-field appearance="fill">
+                        <mat-label>Comment</mat-label>
+                        <input #description="ngModel" ngModel name="description" matInput required>
+                      </mat-form-field>
+                         <br>
+                         <mat-form-field appearance="fill">
+                          <mat-label>Status</mat-label>
+                          <input #status="ngModel" ngModel name="status" matInput required >
+                        </mat-form-field>
+                           <br>
+                           <mat-form-field appearance="fill">
+                            <mat-label>Action</mat-label>
+                            <input #action="ngModel" ngModel name="action" matInput required >
+                          </mat-form-field>
+                     <button mat-raised-button color="primary"  type="submit"  [disabled]="!f.valid" >
+                           Submit
+                  </button>
+
+              </form>
+              </mat-grid-tile>
+
+                </mat-grid-list>
+      </mat-card-content>
+    </div>
+
+
+  </mat-card>
+
+</div>
+
