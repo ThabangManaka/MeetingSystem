@@ -30,5 +30,12 @@ namespace MeetingManagement.Controllers {
             var meetingTypeDto = mapper.Map<IEnumerable<MeetingTypeDto>>(meetingTypes);
             return Ok(meetingTypes);
         }
+      [HttpGet("get/{id}")]
+        public async Task<IActionResult> GetMeetingTypesById(int id)
+        {
+            var meetingTypes= await uow.MeetingTypeRepository.GetMeetingTypeIdAsync(id);
+            var meetingTypeDto = mapper.Map<MeetingTypeDto>(meetingTypes);
+            return Ok(meetingTypeDto);
+        }
     }
 }

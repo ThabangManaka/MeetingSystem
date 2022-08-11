@@ -1,1 +1,67 @@
-<p>create-meeting works!</p>
+<mat-toolbar class="toolbar">
+  <h2 mat-dialog-title>{{message}}</h2>
+
+          <i (click)="onNoClick()" class="material-icons">cancel</i>
+           <span class="toolbar-spacer"></span>
+   </mat-toolbar>
+     <mat-dialog-content>
+
+      <div class="container">
+        <form [formGroup]="_productForm" (submit)="onSubmit()" >
+          <div class="form-group">
+
+
+      <mat-form-field appearance="fill">
+        <mat-label>Enter Date</mat-label>
+        <input matInput formControlName = "meetingDate"
+        [matDatepicker]="myDatePicker" [min]="minDate" [max]="maxDate">
+        <mat-datepicker-toggle [for] ="myDatePicker" matSuffix>  </mat-datepicker-toggle>
+        <mat-datepicker #myDatePicker></mat-datepicker>
+    </mat-form-field>
+      <br>
+          <!-- <mat-form-field appearance="fill">
+            <select required name="MeetingTypeId"  class="form-control" formControlName="MeetingTypeId">
+              <option value=''>Please select Value</option>
+              <option *ngFor="let meetingType of MeetingTypeList" [value]=" meetingType.MeetingTypeId">
+                  {{ meetingType.Name}}
+              </option>
+            </select>
+        </mat-form-field> -->
+
+        <mat-form-field appearance="fill">
+          <mat-label>Select Meeting Type</mat-label>
+          <mat-select  matNativeControl required formControlName="meetingTypeId">
+            <mat-option *ngFor="let meetingType of MeetingTypeList" [value]="meetingType.meetingTypeId">
+              {{meetingType.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+     <br>
+
+   
+
+    <br>
+    <mat-action-row class="BtnContainer">
+       <button mat-raised-button class="approveBtn"  type="submit" >
+         Approve Request
+         </button>
+
+            <button mat-raised-button  class="declineBtn"  type="button"(click)="onDecline()">
+              Decline Request
+              </button>
+
+              </mat-action-row>
+        </div>
+
+        </form>
+
+     </div>
+  </mat-dialog-content>
+<!-- 
+  <select required name="PeriodID"  class="form-control" formControlName="PeriodID">
+    <option value=''>Please select Value</option>
+    <option *ngFor="let period of PeriodList" [value]="period.periodID">
+        {{period.text}}
+    </option>
+</select> -->

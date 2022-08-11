@@ -1,3 +1,4 @@
+import { CreateMeetingComponent } from './create-meeting/create-meeting.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -11,6 +12,7 @@ import { NavbvarComponent } from './navbvar/navbvar.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { MaterialModule } from './material.module';
+import { MeetingItemComponent } from './meeting-item/meeting-item.component';
 
 
 
@@ -18,9 +20,11 @@ import { MaterialModule } from './material.module';
   declarations: [
     AppComponent,
     MeetingListComponent,
+    CreateMeetingComponent,
     NavbvarComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    MeetingItemComponent
   ],
   imports: [
     BrowserModule,

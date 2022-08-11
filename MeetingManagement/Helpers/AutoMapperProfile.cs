@@ -13,6 +13,9 @@ namespace MeetingManagement.Helpers{
 
       CreateMap<Meeting, MeetingDto>().ReverseMap();
 
+            CreateMap<MeetingType, MeetingTypeDto>()
+           .ForMember(d => d.Name, opt => opt.MapFrom(src => src.Name));
+
 //       CreateMap<Property, PropertyListDto>()
 //                 .ForMember(d => d.City, opt => opt.MapFrom(src => src.City.Name))
 //                 .ForMember(d => d.Country, opt => opt.MapFrom(src => src.City.Country))

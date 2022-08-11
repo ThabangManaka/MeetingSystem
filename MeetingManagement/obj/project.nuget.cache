@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "diIc+oRsNdfEJSDOsn4pDuvM/9f7/RXnbhoIOqryEgIeICUjh84G+jepTJmByY8eVFjyUYIM7rztVz721LWZow==",
+  "dgSpecHash": "pAtdXMp/zJFD0ZGhn9JBDl+t9TsrbXHmyLYfHcfWer5Wx+Yp7suuCaFPlb84T5ivcHa+FFOY+oCuXRZkXOhGwA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Manaka\\MeetingManagement\\MeetingManagement.csproj",
+  "projectFilePath": "C:\\Users\\Manaka\\ChillDev\\MeetingManagement\\MeetingManagement.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Manaka\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\Manaka\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",

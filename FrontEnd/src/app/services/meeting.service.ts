@@ -14,12 +14,12 @@ export class MeetingService {
 
   //   console.log(order)
  let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-   return this.http.post<any>(this.baseUrl + 'add/' ,meeting,{ headers: headers })
+   return this.http.post<any>(this.baseUrl + 'post/' ,meeting,{ headers: headers })
   }
 
-   getAllMeeting(): Observable<string[]> {
+   getAllMeeting(): Observable<Meeting[]> {
 
-    return this.http.get<string[]>(this.baseUrl  );
+    return this.http.get<any[]>(this.baseUrl +'get' );
 }
 
 

@@ -2371,11 +2371,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Manaka\\MeetingManagement\\MeetingManagement.csproj",
+      "projectUniqueName": "C:\\Users\\Manaka\\ChillDev\\MeetingManagement\\MeetingManagement.csproj",
       "projectName": "MeetingManagement",
-      "projectPath": "C:\\Users\\Manaka\\MeetingManagement\\MeetingManagement.csproj",
+      "projectPath": "C:\\Users\\Manaka\\ChillDev\\MeetingManagement\\MeetingManagement.csproj",
       "packagesPath": "C:\\Users\\Manaka\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Manaka\\MeetingManagement\\obj\\",
+      "outputPath": "C:\\Users\\Manaka\\ChillDev\\MeetingManagement\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -2468,7 +2468,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.107\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.108\\RuntimeIdentifierGraph.json"
       }
     }
   }

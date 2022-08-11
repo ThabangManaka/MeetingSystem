@@ -5,7 +5,8 @@ using MeetingManagement.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MeetingManagement.Controllers{
-
+  [Route("api/[controller]")]
+  [ApiController]
     public class MeetingController : Controller {
 
       private readonly IUnitOfWork uow;
@@ -16,6 +17,8 @@ namespace MeetingManagement.Controllers{
              this.uow = uow;
             this.mapper = mapper;
          }
+
+          [HttpGet ("get")]  
        public async Task<IActionResult> GetMeeting()
         {            
             var meetings = await uow.MeetingRepository.GetMeetingAsync();
