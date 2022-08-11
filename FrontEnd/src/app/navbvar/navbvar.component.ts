@@ -11,5 +11,7 @@ export class NavbvarComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  logout() {
+    
+  }
 }

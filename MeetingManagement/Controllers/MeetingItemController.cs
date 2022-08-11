@@ -18,11 +18,17 @@ public MeetingItemController(IUnitOfWork uow, IMapper mapper){
    [HttpGet("get/{id}")]
         public  List<MeetingItem> GetMeetingItemById(int id)
         {
-          //  var meetingItem=  uow.MeetingItemRepository.GetMeetingTypeAsync(id);
-         //var meetingTypeDto = mapper.Map<IEnumerable<MeetingItemDto>>(meetingItem);
-         // return (meetingTypeDto);
 
          return uow.MeetingItemRepository.GetMeetingTypeAsync(id);
+        }
+
+        [HttpPost("post")]
+        public async Task<IActionResult> AddMeetingItem(MeetingItemDto meetingItemDto )
+        {
+            var meetingItem = mapper.Map<MeetingItem>(meetingItemDto );
+            uow.MeetingItemRepository.AddMeetingItem(meetingItem);
+            await uow.SaveAsync();
+            return StatusCode(201);
         }
 }
 }
