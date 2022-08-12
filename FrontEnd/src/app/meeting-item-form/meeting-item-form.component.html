@@ -1,0 +1,116 @@
+<!-- <mat-card >
+
+  <mat-card-title>
+    <p>Add New Meeting Item</p>
+  </mat-card-title>
+  <mat-card-subtitle>
+    <p>Add new item by filling the form. You can click save when you are done:</p>
+  </mat-card-subtitle>
+  <mat-card-content>
+
+      <mat-grid-list cols="1" rowHeight="400px">
+        <mat-grid-tile>
+          <form  #f="ngForm" (ngSubmit)="save(f.value)">
+
+            <mat-form-field appearance="fill">
+              <mat-label>Meeting Item</mat-label>
+              <input #name="ngModel" ngModel name="name" matInput required>
+            </mat-form-field>
+                   <br>
+                   <mat-form-field appearance="fill">
+                    <mat-label>Comment</mat-label>
+
+                    <textarea matInput  #description="ngModel" ngModel name="description"
+                     required></textarea>
+                  </mat-form-field>
+                     <br>
+                     <mat-form-field appearance="fill">
+                      <mat-label>Status</mat-label>
+                      <input #status="ngModel" ngModel name="status" matInput required >
+                    </mat-form-field>
+                       <br>
+                       <mat-form-field appearance="fill">
+                        <mat-label>Action</mat-label>
+                        <input #action="ngModel" ngModel name="action" matInput required >
+                      </mat-form-field>
+                     <br>
+                 <button mat-raised-button color="primary"  type="submit"  [disabled]="!f.valid" >
+                       Submit
+              </button>
+
+          </form>
+          </mat-grid-tile>
+
+            </mat-grid-list>
+  </mat-card-content>
+</mat-card>  -->
+<mat-toolbar class="toolbar">
+  <h2 mat-dialog-title>{{message}}</h2>
+
+
+           <span class="toolbar-spacer"></span>
+   </mat-toolbar>
+     <mat-dialog-content>
+
+      <div class="container">
+        <form [formGroup]="_productForm" (submit)="onSubmit()" >
+          <div class="form-group">
+
+
+      <mat-form-field appearance="fill">
+        <mat-label>Meeting Item</mat-label>
+        <input matInput formControlName = "itemName" required>
+    </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Comment</mat-label>
+
+        <textarea matInput  formControlName = "comments"
+         required></textarea>
+      </mat-form-field>
+      <br>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Status</mat-label>
+        <input matInput formControlName = "status" required>
+    </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Action</mat-label>
+        <input matInput formControlName = "action" required>
+    </mat-form-field>
+      <br>
+
+
+
+
+     <br>
+
+
+
+    <br>
+    <mat-action-row class="BtnContainer">
+       <button mat-raised-button class="approveBtn" [disabled]="_productForm.invalid"  type="submit" >
+        Submit
+         </button>
+
+            <button mat-raised-button  class="declineBtn"  type="button"(click)="onDecline()">
+              Cancel
+              </button>
+
+              </mat-action-row>
+        </div>
+
+        </form>
+
+     </div>
+  </mat-dialog-content>
+
+  <!-- <mat-form-field appearance="fill">
+    <mat-label>Select Meeting Type</mat-label>
+    <mat-select  matNativeControl required formControlName="meetingTypeId">
+      <mat-option *ngFor="let meetingType of MeetingTypeList" [value]="meetingType.meetingTypeId">
+        {{meetingType.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field> -->

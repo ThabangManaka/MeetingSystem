@@ -27,7 +27,7 @@ export class CreateMeetingComponent implements OnInit {
 
   ngOnInit(): void {
 
- this.meetingTypeService.getAllMeetingType().subscribe(allMeetype => { 
+ this.meetingTypeService.getAllMeetingType().subscribe(allMeetype => {
       this.MeetingTypeList = allMeetype
 
       console.log(this.MeetingTypeList);
@@ -36,7 +36,7 @@ export class CreateMeetingComponent implements OnInit {
 
        meetingTypeId: [ '', [Validators.required]],
        meetingDate: [ '', [Validators.required]],
-      
+
     });
   }
 
@@ -50,6 +50,8 @@ export class CreateMeetingComponent implements OnInit {
   }
 
   onDecline() {
+
+    this.dialogRef.close();
   }
 
 }

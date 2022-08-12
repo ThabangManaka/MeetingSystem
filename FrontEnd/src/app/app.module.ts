@@ -1,3 +1,5 @@
+import { MeetingItemFormComponent } from './meeting-item-form/meeting-item-form.component';
+import { BsNavbarComponent } from './bs-navbar/bs-navbar.component';
 import { CreateMeetingComponent } from './create-meeting/create-meeting.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -22,9 +24,11 @@ import { MeetingItemComponent } from './meeting-item/meeting-item.component';
     MeetingListComponent,
     CreateMeetingComponent,
     NavbvarComponent,
+    BsNavbarComponent,
     LoginComponent,
     RegisterComponent,
-    MeetingItemComponent
+    MeetingItemComponent,
+    MeetingItemFormComponent
   ],
   imports: [
     BrowserModule,

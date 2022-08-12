@@ -1,19 +1,15 @@
-<mat-toolbar class="page-header" role="heading">
-  <h1>Add New Meeting Item</h1>
-</mat-toolbar>
+<app-bs-navbar></app-bs-navbar>
+<!-- <mat-card >
 
-<div class="page-content">
-  <mat-card class="page-content__first-item-wrapper">
-    <div class="page-content__first-item-element">
       <mat-card-title>
-        <p>Add New Sales</p>
+        <p>Add New Meeting Item</p>
       </mat-card-title>
       <mat-card-subtitle>
         <p>Add new item by filling the form. You can click save when you are done:</p>
       </mat-card-subtitle>
       <mat-card-content>
 
-          <mat-grid-list cols="2" rowHeight="600px">
+          <mat-grid-list cols="1" rowHeight="400px">
             <mat-grid-tile>
               <form  #f="ngForm" (ngSubmit)="save(f.value)">
 
@@ -21,13 +17,12 @@
                   <mat-label>Meeting Item</mat-label>
                   <input #name="ngModel" ngModel name="name" matInput required>
                 </mat-form-field>
-
-              
-
                        <br>
                        <mat-form-field appearance="fill">
                         <mat-label>Comment</mat-label>
-                        <input #description="ngModel" ngModel name="description" matInput required>
+
+                        <textarea matInput  #description="ngModel" ngModel name="description"
+                         required></textarea>
                       </mat-form-field>
                          <br>
                          <mat-form-field appearance="fill">
@@ -39,6 +34,7 @@
                             <mat-label>Action</mat-label>
                             <input #action="ngModel" ngModel name="action" matInput required >
                           </mat-form-field>
+                         <br>
                      <button mat-raised-button color="primary"  type="submit"  [disabled]="!f.valid" >
                            Submit
                   </button>
@@ -48,10 +44,59 @@
 
                 </mat-grid-list>
       </mat-card-content>
-    </div>
+  </mat-card> -->
 
 
+
+  <mat-card>
+    <mat-card-header>
+        <h2>{{allMeetingType.itemName}}</h2>
+    </mat-card-header>
+
+    <mat-card-content>
+
+      <table mat-table [dataSource]="dataSource" class="employee-table__table">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+
+        <ng-container matColumnDef="itemName">
+          <th mat-header-cell *matHeaderCellDef> Meeting Item</th>
+          <td mat-cell *matCellDef="let element"> {{element.itemName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="comments">
+          <th mat-header-cell *matHeaderCellDef> Meeting Date</th>
+          <td mat-cell *matCellDef="let element"> {{element.comments}} </td>
+        </ng-container>
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef> Meeting Date</th>
+          <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+        </ng-container>
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef> Meeting Date</th>
+          <td mat-cell *matCellDef="let element"> {{element.action}} </td>
+        </ng-container>
+
+     <!--actions-->
+     <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>  </th>
+      <td mat-cell *matCellDef="let element; let i=index;">
+
+        <button mat-raised-button class="deleteBtn"   [routerLink]="['/MeetingItem/',element.meetingId]">
+
+          <mat-icon aria-label="Input">
+            input
+          </mat-icon>
+        </button>
+      </td>
+    </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+    </mat-card-content>
   </mat-card>
-
-</div>
 

@@ -1,25 +1,22 @@
+import { MeetingItemFormComponent } from './../meeting-item-form/meeting-item-form.component';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { CreateMeetingComponent } from '../create-meeting/create-meeting.component';
 
 @Component({
-  selector: 'app-navbvar',
-  templateUrl: './navbvar.component.html',
-  styleUrls: ['./navbvar.component.scss']
+  selector: 'app-bs-navbar',
+  templateUrl: './bs-navbar.component.html',
+  styleUrls: ['./bs-navbar.component.scss']
 })
-export class NavbvarComponent implements OnInit {
+export class BsNavbarComponent implements OnInit {
 
   constructor(public dialog: MatDialog,) { }
 
   ngOnInit(): void {
   }
-  logout() {
+  AddMeetingItem(){
 
-  }
-
-  AddMeeting(){
-    const dialogRef = this.dialog.open(CreateMeetingComponent, {
-      width: '120kw',
+    const dialogRef = this.dialog.open(MeetingItemFormComponent, {
+     // width: '120kw',
      // data: {name: this.name, animal: this.animal},
     });
 
@@ -28,4 +25,6 @@ export class NavbvarComponent implements OnInit {
      // this.animal = result;
     });
   }
-}
+
+  }
+
