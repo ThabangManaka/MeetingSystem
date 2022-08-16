@@ -45,7 +45,7 @@
   </mat-card-content>
 </mat-card>  -->
 <mat-toolbar class="toolbar">
-  <h2 mat-dialog-title>{{message}}</h2>
+ <h2 mat-dialog-title>{{message}}</h2> 
 
 
            <span class="toolbar-spacer"></span>
@@ -53,7 +53,7 @@
      <mat-dialog-content>
 
       <div class="container">
-        <form [formGroup]="_productForm" (submit)="onSubmit()" >
+        <form [formGroup]="meetingForm" novalidate (ngSubmit)="onSubmit()" >
           <div class="form-group">
 
 
@@ -90,7 +90,7 @@
 
     <br>
     <mat-action-row class="BtnContainer">
-       <button mat-raised-button class="approveBtn" [disabled]="_productForm.invalid"  type="submit" >
+       <button mat-raised-button class="approveBtn" [disabled]="meetingForm.invalid"  type="submit" >
         Submit
          </button>
 

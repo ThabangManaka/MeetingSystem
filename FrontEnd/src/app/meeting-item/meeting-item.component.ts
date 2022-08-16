@@ -1,9 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
+import { MeetingItemFormComponent } from '../meeting-item-form/meeting-item-form.component';
 import { MeetingItemService } from '../services/meeting-item.service';
 
 @Component({
@@ -28,6 +29,8 @@ export class MeetingItemComponent implements OnInit {
 
   ngOnInit(): void {
     this.meetingId= this.route.snapshot.paramMap.get('id')
+
+    console.log(this.meetingId)
     this.meetingItemService.getAllMeetingItemById(this.meetingId).subscribe(meetingItem =>{
       console.log(meetingItem)
    this.allMeetingType =meetingItem
@@ -39,6 +42,22 @@ export class MeetingItemComponent implements OnInit {
 
   save(employee : any) {
    console.log(employee)
+  }
+
+  openDialog(meetingItemData: any){
+ 
+  
+    const dialogRef = this.dialog.open(MeetingItemFormComponent, {
+      width: '160kw',
+     data:meetingItemData
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+     // this.animal = result;
+    });
+
+
   }
 
 }

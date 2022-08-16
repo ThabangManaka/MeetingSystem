@@ -13,6 +13,6 @@ public interface IMeetingRepository
         public  Task<Meeting> FindMeeting(int id);
       
         public  Task<IEnumerable<Meeting>> GetMeetingAsync();
-    
+             public bool UpdateMeeting(Meeting meeting);
  }
 }

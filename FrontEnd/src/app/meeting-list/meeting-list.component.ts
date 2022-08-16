@@ -21,7 +21,7 @@ export class MeetingListComponent implements OnInit {
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
  // @ViewChild(MatPaginator) paginator = new MatPaginator();
-  displayedColumns: string[] = ['ImageUrl','name','date','actions'];
+  displayedColumns: string[] = ['ImageUrl','meetingDescription','date','actions'];
   //dataSource = ELEMENT_DATA;
   //listData: MatTableDataSource<any>;
    dataSource: any;
@@ -35,28 +35,25 @@ export class MeetingListComponent implements OnInit {
 
 
     this.meetingService.getAllMeeting().subscribe(allMeeting=>{
-      console.log(allMeeting[0]);
+      console.log(allMeeting);
       this.dataSource = new MatTableDataSource<any>(allMeeting),
       this.dataSource.sort = this.sort,
       this.dataSource.paginator = this.paginator;
 
-      this.meetingTypeService.getAllMeetingTypeById(allMeeting[0].meetingTypeId).subscribe(TypeMeeting=> {
-        this.meetType = TypeMeeting.name
-      })
+      // this.meetingTypeService.getAllMeetingTypeById(allMeeting[0].meetingTypeId).subscribe(TypeMeeting=> {
+      //   this.meetType = TypeMeeting.name
+      // })
     })
   }
-  updateDialog(id:any) {
+openDialog(id:any) {
     console.log(id)
 
 
   }
 
-  openDialog(){}
-
-  AddMeeting(){
+ updateMeetingDialog(meetingItemData : any){
     const dialogRef = this.dialog.open(CreateMeetingComponent, {
-
-     // data: {name: this.name, animal: this.animal},
+      data: meetingItemData,
     });
 
     dialogRef.afterClosed().subscribe(result => {

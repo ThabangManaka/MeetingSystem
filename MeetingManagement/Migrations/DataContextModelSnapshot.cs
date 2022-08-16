@@ -33,6 +33,10 @@ namespace MeetingManagement.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("MeetingDescription")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("MeetingTypeId")
                         .HasColumnType("int");
 

@@ -21,4 +21,5 @@ getAllMeetingTypeById(id : any) : Observable<MeetingType>{
 
   return this.http.get<any>(this.baseUrl + id );
 }
+
 }

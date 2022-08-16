@@ -21,7 +21,7 @@ namespace MeetingManagement.Controllers {
             this.mapper = mapper;
             }
 
-               // GET api/city
+      
         [HttpGet ("get")]       
       public async Task<IActionResult> GetMeetingTypes()
         {            

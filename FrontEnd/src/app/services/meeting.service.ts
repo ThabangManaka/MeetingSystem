@@ -12,14 +12,22 @@ export class MeetingService {
 
   AddeMeeting(meeting: Meeting){
 
-  //   console.log(order)
+  console.log(meeting)
  let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
    return this.http.post<any>(this.baseUrl + 'post/' ,meeting,{ headers: headers })
   }
 
    getAllMeeting(): Observable<Meeting[]> {
 
-    return this.http.get<any[]>(this.baseUrl +'get' );
+    return this.http.get<Meeting[]>(this.baseUrl +'get' );
+}
+
+
+UpdateMeeting(id: any,meeting: Meeting){
+
+  var putUrl = this.baseUrl + 'update/' + id ;
+  let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+  return this.http.put<any>(putUrl,meeting,{ headers: headers });
 }
 
 

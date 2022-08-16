@@ -4,6 +4,5 @@ export interface MeetingItem {
    comments: string;
   status : string;
   action : string;
-  meetingTypeId: number;
    meetingId: number
 }

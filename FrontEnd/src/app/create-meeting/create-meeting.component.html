@@ -7,9 +7,15 @@
      <mat-dialog-content>
 
       <div class="container">
-        <form [formGroup]="_productForm" (submit)="onSubmit()" >
+        <form [formGroup]="meetingForm" (submit)="onSubmit()" >
           <div class="form-group">
 
+
+            <mat-form-field appearance="fill">
+              <mat-label>Enter Description</mat-label>
+              <input matInput formControlName = "meetingDescription" required>
+          </mat-form-field>
+          <br>
 
       <mat-form-field appearance="fill">
         <mat-label>Enter Date</mat-label>
@@ -30,13 +36,12 @@
           </mat-select>
         </mat-form-field>
 
-     <br>
 
 
 
     <br>
     <mat-action-row class="BtnContainer">
-       <button mat-raised-button class="approveBtn" [disabled]="_productForm.invalid"  type="submit" >
+       <button mat-raised-button class="approveBtn" [disabled]="meetingForm.invalid"  type="submit" >
         Submit
          </button>
 

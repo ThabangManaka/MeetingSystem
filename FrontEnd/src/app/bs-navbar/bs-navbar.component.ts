@@ -1,6 +1,7 @@
 import { MeetingItemFormComponent } from './../meeting-item-form/meeting-item-form.component';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-bs-navbar',
@@ -8,16 +9,20 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./bs-navbar.component.scss']
 })
 export class BsNavbarComponent implements OnInit {
+  meetingId: any;
+  constructor(public dialog: MatDialog,private route: ActivatedRoute,) { 
+    this.meetingId= this.route.snapshot.paramMap.get('id')
 
-  constructor(public dialog: MatDialog,) { }
+    console.log(this.meetingId)
+  }
 
   ngOnInit(): void {
   }
   AddMeetingItem(){
 
     const dialogRef = this.dialog.open(MeetingItemFormComponent, {
-     // width: '120kw',
-     // data: {name: this.name, animal: this.animal},
+      width: '160kw',
+     data: {name :this.meetingId },
     });
 
     dialogRef.afterClosed().subscribe(result => {

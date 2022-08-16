@@ -36,6 +36,21 @@ public class MeetingRepository : IMeetingRepository {
             return await dc.Meetings.ToListAsync();
         }
 
+       public bool UpdateMeeting(Meeting meeting)
+        {
+     
+            dc.Entry(meeting).Property(x => x.MeetingDescription).IsModified = true;
+            var result =dc.SaveChanges();
+            if (result > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
 }
 
 

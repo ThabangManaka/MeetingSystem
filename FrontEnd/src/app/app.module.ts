@@ -1,3 +1,4 @@
+import { AlertifyService } from './services/alertify.service';
 import { MeetingItemFormComponent } from './meeting-item-form/meeting-item-form.component';
 import { BsNavbarComponent } from './bs-navbar/bs-navbar.component';
 import { CreateMeetingComponent } from './create-meeting/create-meeting.component';
@@ -39,7 +40,7 @@ import { MeetingItemComponent } from './meeting-item/meeting-item.component';
      FormsModule,
      BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [AlertifyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

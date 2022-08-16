@@ -1,3 +1,4 @@
+using System.Net;
 using AutoMapper;
 using MeetingManagement.Dto;
 using MeetingManagement.Interfaces;
@@ -19,16 +20,35 @@ public MeetingItemController(IUnitOfWork uow, IMapper mapper){
         public  List<MeetingItem> GetMeetingItemById(int id)
         {
 
-         return uow.MeetingItemRepository.GetMeetingTypeAsync(id);
+         return uow.MeetingItemRepository.GetMeetingItemsByMeetingIdAsync(id);
         }
 
         [HttpPost("post")]
-        public async Task<IActionResult> AddMeetingItem(MeetingItemDto meetingItemDto )
+        public async Task<IActionResult> AddMeetingItem(MeetingItem meetingItemDto )
         {
-            var meetingItem = mapper.Map<MeetingItem>(meetingItemDto );
-            uow.MeetingItemRepository.AddMeetingItem(meetingItem);
+          
+            uow.MeetingItemRepository.AddMeetingItem(meetingItemDto );
             await uow.SaveAsync();
             return StatusCode(201);
         }
+
+           [HttpPut("update/{id}")]
+        public async Task<IActionResult> UpdateMeetingItem(int id, MeetingItemDto meetingItemDto )
+        {
+    
+            var meetingFromDb = await uow.MeetingItemRepository.FindMeetingItem(id);
+
+            if (meetingFromDb == null)
+                return BadRequest("Update not allowed");
+            
+    
+            mapper.Map(meetingItemDto, meetingFromDb);
+        
+            await uow.SaveAsync();
+            return StatusCode(200);
+        }
+
+     
+        
 }
 }
